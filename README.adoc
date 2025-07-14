@@ -20,7 +20,13 @@ $ oc new-app dotnet:7.0-ubi8~https://github.com/redhat-developer/s2i-dotnetcore-
 # Make the .NET Core application accessible externally and show the url
 $ oc expose service s2i-dotnetcore-ex
 $ oc get route s2i-dotnetcore-ex
+
+
+# Get the route from the command line in http format
+$ oc get route s2i-dotnetcore-ex  -o json | jq -r '.spec.host | "http://" + .'
 ----
+
+
 
 == Copyright and License
 
